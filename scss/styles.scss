@@ -1,0 +1,93 @@
+@import "custom";
+
+body {
+    background-color: $secondary;
+    color: $primary;
+
+    min-height: 100vh;
+}
+
+.scroll-if-needed {
+    overflow-x: auto;
+}
+
+.green-color {
+    color: $green;
+}
+
+.warning-color {
+    color: $warning;
+}
+
+.w-max-content {
+    width: max-content;
+}
+
+.sidebar-toggle {
+    width: 2.5rem;
+    height: 2.5rem;
+
+    border: 1px solid var(--bs-border-color-translucent);
+    z-index: 1046;
+    top: 1.25rem;
+}
+
+.action-btn {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+
+.sidebar-toggle:hover,
+.sidebar-toggle:active {
+    background-color: $white;
+    border: 1px solid var(--bs-border-color-translucent);
+}
+
+.btn-secondary {
+    background-color: $white;
+}
+
+select {
+    min-height: 30px;
+}
+
+a {
+    text-decoration: none;
+}
+
+aside#sidebar {
+    background-color: $primary !important;
+    color: $secondary;
+}
+
+aside {
+    height: 100vh;
+    position: sticky;
+    top: 0;
+}
+
+a.sidebar-link {
+    color: $secondary;
+} 
+
+td {
+    width: max-content;
+}
+
+tr, thead {
+    border-bottom: 1px solid var(--bs-border-color-translucent);
+}
+
+tr:last-child {
+    border-bottom: none;
+}
+
+.sales-table-title,
+.sales-table-subtitle,
+.cart .card-body {
+    padding-inline: 1.75rem;
+}
+
+#quantity {
+    width: 40px;
+}

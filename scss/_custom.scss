@@ -1,0 +1,64 @@
+// Functions first
+@import "../node_modules/bootstrap/scss/functions";
+
+$white: #ffffff;
+$black: #000000;
+$green: #11cc11;
+$punch-red: #e63946ff;
+$honeydew: #f1faeeff;
+$frosted-blue: #a8dadcff;
+$cerulean: #457b9dff;
+$oxford-navy: #1d3557ff;
+
+$primary: $oxford-navy;
+$secondary: $honeydew;
+$danger: $punch-red;
+$success: $green;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1600px
+);
+
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1520px
+);
+
+$position-values: (
+  1rem: 1rem,
+  0: 0,
+  50: 50%,
+  100: 100%
+);
+
+// Required Bootstrap imports
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/variables-dark";
+@import "../node_modules/bootstrap/scss/maps";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/type";
+
+// Optional components
+@import "../node_modules/bootstrap/scss/utilities";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/helpers";
+@import "../node_modules/bootstrap/scss/utilities/api";
+@import "../node_modules/bootstrap/scss/card";
+@import "../node_modules/bootstrap/scss/buttons";
+@import "../node_modules/bootstrap/scss/offcanvas";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/alert";
+
+// @import "../node_modules/bootstrap/scss/bootstrap"; 
