@@ -1,9 +1,23 @@
 <?php 
 
 function getDBConnection() {
-    $env = parse_ini_file("../.env", false, INI_SCANNER_RAW);
+    if (file_exists(__DIR__ . "/../.env")) {
+        $env = parse_ini_file("../.env", false, INI_SCANNER_RAW);
 
-    return new mysqli($env['DB_HOST'], $env['DB_USER'], $env['DB_PASSWORD'], 'pharmacy', $env['DB_PORT']);
+        $host = $env['DB_HOST'];
+        $user = $env['DB_USER'];
+        $password = $env['DB_PASSWORD'];
+        $name = $env['DB_NAME'];
+        $port = $env['DB_PORT'];
+    } else {
+        $host = getenv('DB_HOST');
+        $user = getenv('DB_USER');
+        $password = getenv('DB_PASSWORD');
+        $name = getenv('DB_NAME');
+        $port = getenv('DB_PORT');
+    }
+
+    return new mysqli($host, $user, $password, $name, $port);
 }
 
 function bindAndExecuteStatement($statement, $parameterTypes, $parameters) {
