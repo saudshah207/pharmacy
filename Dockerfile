@@ -18,7 +18,7 @@ RUN rm /etc/nginx/sites-enabled/default && \
     ls -l /etc/nginx/sites-enabled
 
 # Copy configs
-COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+COPY docker/nginx.conf /etc/nginx/nginx.conf
 # Debug: print nginx configuration
 RUN nginx -T
 
