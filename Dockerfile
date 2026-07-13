@@ -12,8 +12,10 @@ WORKDIR /var/www/html
 # Copy application
 COPY . .
 
-# Remove default nginx site
-RUN rm /etc/nginx/sites-enabled/default
+# Debug: Remove default nginx site
+RUN rm /etc/nginx/sites-enabled/default && \
+    echo "After rm:" && \
+    ls -l /etc/nginx/sites-enabled
 
 # Copy configs
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
