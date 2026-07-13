@@ -12,23 +12,12 @@ WORKDIR /var/www/html
 # Copy application
 COPY . .
 
-# Debug: Remove default nginx site
-RUN rm /etc/nginx/sites-enabled/default && \
-    echo "After rm:" && \
-    ls -l /etc/nginx/sites-enabled
-
 # Copy configs
 COPY docker/nginx.conf /etc/nginx/nginx.conf
-# Debug: print nginx configuration
-RUN nginx -T
-
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Create required directories
 RUN mkdir -p /run/php /var/log/supervisor
-
-# Debug: check whether app files are in server root
-RUN echo "APP FILES:" && ls -la /var/www/html/public
 
 EXPOSE 80
 
