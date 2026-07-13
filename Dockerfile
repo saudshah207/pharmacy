@@ -17,6 +17,9 @@ RUN rm /etc/nginx/sites-enabled/default
 
 # Copy configs
 COPY docker/nginx.conf /etc/nginx/conf.d/default.conf
+# Debug: print nginx configuration
+RUN nginx -T
+
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Create required directories
