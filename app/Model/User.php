@@ -64,7 +64,9 @@ class User {
         $statement = $db->prepare('SELECT password FROM users WHERE isActive = 1 AND username = ?');
         $statement = bindAndExecuteStatement($statement, 's', [$username])['statement'];
 
-        $hash = $statement->get_result()->fetch_assoc() ? $statement->get_result()->fetch_assoc()['password'] : '';
+        $result = $statement->get_result()->fetch_assoc();
+
+        $hash = $result ? $result['password'] : '';
 
         return $hash;
     }
