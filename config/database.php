@@ -17,15 +17,17 @@ function getDBConnection($maxAttempts = 5) {
         $port = getenv('DB_PORT');
     }
 
-    $connection;
+    $connection = null;
 
     try {
         $connection = new mysqli($host, $user, $password, $name, $port);
     } catch (Exception $error) {
         $maxAttempts--;
         
-        if ($maxAttempts > 0) 
+        if ($maxAttempts > 0) {
+            sleep(1);
             $connection = getDBConnection($maxAttempts);
+        }
     }
 
     return $connection;
