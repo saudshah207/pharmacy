@@ -1,6 +1,6 @@
 <?php 
 
-function getDBConnection() {
+function getDBConnection($maxAttempts = 5) {
     if (file_exists(__DIR__ . "/../.env")) {
         $env = parse_ini_file("../.env", false, INI_SCANNER_RAW);
 
@@ -17,7 +17,18 @@ function getDBConnection() {
         $port = getenv('DB_PORT');
     }
 
-    return new mysqli($host, $user, $password, $name, $port);
+    $connection;
+
+    try {
+        $connection = new mysqli($host, $user, $password, $name, $port);
+    } catch (Exception $error) {
+        $maxAttempts--;
+        
+        if ($maxAttempts > 0) 
+            $connection = getDBConnection($maxAttempts);
+    }
+
+    return $connection;
 }
 
 function bindAndExecuteStatement($statement, $parameterTypes, $parameters) {
